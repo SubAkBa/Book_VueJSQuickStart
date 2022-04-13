@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="https://unpkg.com/vue@2.5.16/dist/vue.js"></script>
+</head>
+<body>
+<div id="example">
+  <button id="a" v-bind:style="style1" @mouseover.stop="overEvent" @mouseout.stop="outEvent">테스트</button>
+</div>
+
+<div id="example1">
+  <button id="btn1" v-bind:style="[ myColor, myLayout ]">버튼1</button>
+</div>
+<script type="text/javascript">
+  var vm = new Vue({
+    el: '#example',
+    data: {
+      style1: {
+        backgroundColor: 'aqua',
+        border: '1px solid gray',
+        width: '100px',
+        textAlign: 'center'
+      }
+    },
+    methods: {
+      overEvent: function (e) {
+        this.style1.backgroundColor = 'purple';
+        this.style1.color = 'yellow';
+      },
+      outEvent: function (e) {
+        this.style1.backgroundColor = 'aqua';
+        this.style1.color = 'black';
+      }
+    }
+  });
+
+  var vm1 = new Vue({
+    el: '#example1',
+    data: {
+      myColor: {
+        backgroundColor: 'purple',
+        color: 'yellow'
+      },
+      myLayout: {
+        width: '150px',
+        height: '80px',
+        textAlign: 'center'
+      }
+    }
+  })
+</script>
+</body>
+</html>
