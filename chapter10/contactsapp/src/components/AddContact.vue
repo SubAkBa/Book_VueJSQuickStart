@@ -1,10 +1,15 @@
 <template>
-  <div></div>
+  <contact-form mode="add" />
 </template>
 
 <script>
+import ContactForm from "@/components/ContactForm";
+
 export default {
-  name: "AddContact"
+  name: "AddContact",
+  components: {
+    ContactForm
+  }
 }
 </script>
 
