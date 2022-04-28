@@ -10,7 +10,7 @@
 
 <script type="text/javascript">
 import Constant from "@/Constant";
-import {mapState, mapMutations} from 'vuex';
+import {mapState} from 'vuex';
 
 export default {
   name: "ListItem",
@@ -23,10 +23,12 @@ export default {
         return {checked: false};
       }
     },
-    ...mapMutations([
-        Constant.DELETE_TODO,
-        Constant.DONE_TOGGLE
-    ])
+    deleteTodo(payload) {
+      this.$store.dispatch(Constant.DELETE_TODO, payload);
+    },
+    doneToggle(payload) {
+      this.$store.dispatch(Constant.DONE_TOGGLE, payload);
+    },
   }
 }
 </script>
