@@ -27,23 +27,20 @@
 </template>
 
 <script>
-import eventBus from '../EventBus'
+import Constant from '../Constant';
+import { mapState } from 'vuex';
 
 export default {
   name: "UpdatePhoto",
   props: ['contact'],
-  computed: {
-    contactOne() {
-      return this.contact;
-    },
-  },
+  computed: mapState(['contact']),
   methods: {
     cancelEvent() {
-      eventBus.$emit('cancel');
+      this.$store.dispatch(Constant.CANCEL_FORM);
     },
     photoSubmit() {
       var file = this.$refs.photofile.files[0];
-      eventBus.$emit('updatePhoto', this.contact.no, file);
+      this.$store.dispatch(Constant.UPDATE_PHOTO, { no: this.contact.no, file: file });
     },
   }
 }
