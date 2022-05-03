@@ -3,10 +3,10 @@
     <div class="form" @keyup.esc="cancelEvent">
       <form method="post" enctype="multipart/form-data">
         <h3 class="heading">:: 사진 변경</h3>
-        <input type="hidden" name="no" class="long" disabled v-model="contactOne.no"/>
+        <input type="hidden" name="no" class="long" disabled v-model="contact.no"/>
         <div>
           <label>현재 사진</label>
-          <img class="thumb" :src="contactOne.photo"/>
+          <img class="thumb" :src="contact.photo"/>
         </div>
         <div>
           <label>사진 파일 선택</label>
@@ -32,7 +32,6 @@ import { mapState } from 'vuex';
 
 export default {
   name: "UpdatePhoto",
-  props: ['contact'],
   computed: mapState(['contact']),
   methods: {
     cancelEvent() {

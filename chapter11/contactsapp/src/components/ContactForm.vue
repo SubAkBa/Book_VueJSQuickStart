@@ -4,19 +4,19 @@
       <h3 class="heading">:: {{ headingText }}</h3>
       <div v-if="mode === 'update'" class="form-group">
         <label>일련번호</label>
-        <input type="text" name="no" class="long" disabled v-model="contentOne.no"/>
+        <input type="text" name="no" class="long" disabled v-model="contact.no"/>
       </div>
       <div class="form-group">
         <label>이름</label>
-        <input type="text" name="name" class="long" v-model="contentOne.name" ref="name" placeholder="이름을 입력하세요"/>
+        <input type="text" name="name" class="long" v-model="contact.name" ref="name" placeholder="이름을 입력하세요"/>
       </div>
       <div class="form-group">
         <label>전화번호</label>
-        <input type="text" name="tel" class="long" v-model="contentOne.tel" placeholder="전화번호를 입력하세요"/>
+        <input type="text" name="tel" class="long" v-model="contact.tel" placeholder="전화번호를 입력하세요"/>
       </div>
       <div class="form-group">
         <label>주 소</label>
-        <input type="text" name="address" class="long" v-model="contentOne.address" placeholder="주소를 입력하세요"/>
+        <input type="text" name="address" class="long" v-model="contact.address" placeholder="주소를 입력하세요"/>
       </div>
       <div class="form-group">
         <div>&nbsp;</div>
@@ -58,9 +58,9 @@ export default {
   methods: {
     submitEvent() {
       if (this.mode !== 'update') {
-        this.$store.dispatch(Constant.UPDATE_CONTACT);
-      } else {
         this.$store.dispatch(Constant.ADD_CONTACT);
+      } else {
+        this.$store.dispatch(Constant.UPDATE_CONTACT);
       }
     },
     cancelEvent() {
